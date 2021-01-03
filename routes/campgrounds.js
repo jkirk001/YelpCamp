@@ -19,11 +19,12 @@ const {
 router
   .route("/")
   .get(catchAsync(index))
-  //.post(validateCampground, isLoggedIn, catchAsync(postNewCamp));
-  .post(upload.array("campground[image]"), (req, res) => {
-    console.log(req.files, req.body);
-    return res.send("it worked!");
-  });
+  .post(
+    isLoggedIn,
+    upload.array("campground[image]"),
+    validateCampground,
+    catchAsync(postNewCamp)
+  );
 
 router.get("/new", isLoggedIn, getNewCamp);
 

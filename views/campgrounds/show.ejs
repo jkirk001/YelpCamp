@@ -4,7 +4,8 @@
 <div class="row">
   <div class="col-6">
     <div class="card mb-5">
-      <img src="<%= camp.image %>" class="card-img-top" alt="..." />
+      <% for (each of camp.images) { %>
+      <img src="<%= each.url %>" class="card-img-top" /> <% } %>
       <div class="card-body">
         <h5 class="card-title"><%= camp.title %></h5>
         <p class="card-text"><%= camp.description %></p>
